@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { LobbySelector } from "@/components/lobby-selector";
+import { LobbySelector } from "./lobby-selector";
 import type { TournamentLobbies } from "@/types/tournament";
 
 type StageOption = { id: string; name: string };
