@@ -46,14 +46,6 @@ export async function OverviewContent() {
         {tournament.stages.map((stage) => (
           <Card key={stage.id} className="border-border/60">
             <CardHeader>
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge variant={stage.leaderboard ? "default" : "outline"}>
-                  {stage.leaderboard ? "Leaderboard" : "No leaderboard"}
-                </Badge>
-                <Badge variant={stage.lobbies ? "secondary" : "outline"}>
-                  {stage.lobbies ? "Lobbies" : "No lobbies"}
-                </Badge>
-              </div>
               <CardTitle>{stage.name}</CardTitle>
               <CardDescription>
                 {stage.leaderboard
