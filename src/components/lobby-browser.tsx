@@ -94,12 +94,7 @@ export function LobbyBrowser({
                   key={`${lobby.name}-${player.name}`}
                   className="flex items-center justify-between gap-4 rounded-lg border border-border/60 px-3 py-2"
                 >
-                  <div className="space-y-1">
-                    <p className="font-medium">{player.name}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {player.costreamer || "No costreamer listed"}
-                    </p>
-                  </div>
+                  <p className="font-medium">{player.name}</p>
                   <Badge variant="outline">
                     {player.points === null ? "-" : `${player.points} pts`}
                   </Badge>
