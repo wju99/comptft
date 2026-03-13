@@ -8,8 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Comptft",
+  title: "CompTFT",
   description: "Live TFT tournament viewer powered by Google Sheets.",
+  icons: {
+    icon: "/COMPTFT_logo.svg",
+  },
 };
 
 export default function RootLayout({
