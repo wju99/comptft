@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,40 +19,15 @@ export async function OverviewContent() {
       <section className="flex w-full flex-col gap-6">
         <Card className="w-full border-border/60">
           <CardHeader className="space-y-4">
-            <Badge variant="secondary">Google Sheet powered</Badge>
             <div className="space-y-3">
               <CardTitle className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 {tournament.title}
               </CardTitle>
-              <CardDescription className="max-w-2xl text-base leading-7">
-                A live prototype that converts the published tournament workbook
-                into a browsable web experience for viewers. Data refreshes on page
-                load from the published Google Sheet.
+              <CardDescription className="w-full text-base leading-7">
+                The Rolldown podcast (featuring WigWugg and Broseph) does a deep dive into the TFT competition at Set 16 AMER Regionals.
               </CardDescription>
             </div>
           </CardHeader>
-          <CardContent className="flex flex-wrap gap-3">
-            <Button render={<Link href="/leaderboards" />}>
-              Open leaderboards
-              <ArrowRight className="size-4" />
-            </Button>
-            <Button render={<Link href="/lobbies" />} variant="outline">
-              Browse lobbies
-            </Button>
-            <Button
-              render={
-                <a
-                  href={tournament.sourceUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                />
-              }
-              variant="outline"
-            >
-              Open source sheet
-              <ExternalLink className="size-4" />
-            </Button>
-          </CardContent>
         </Card>
 
         <div className="w-full overflow-hidden rounded-lg border border-border/60 bg-muted/20">
