@@ -13,7 +13,9 @@ export function AppNav({ currentPath }: { currentPath: string }) {
   return (
     <header className="border-b border-primary/20 bg-background/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 py-5 lg:flex-row lg:items-center lg:justify-between">
-        <h1 className="font-display text-xl font-semibold tracking-tight">CompTFT</h1>
+        <Link href="/" className="font-display text-xl font-semibold tracking-tight">
+          CompTFT
+        </Link>
 
         <nav className="flex flex-wrap gap-2">
           {links.map((link) => {
