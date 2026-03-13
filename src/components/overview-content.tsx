@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,6 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { getTournamentData } from "@/lib/google-sheet";
 
 export async function OverviewContent() {
@@ -47,29 +54,60 @@ export async function OverviewContent() {
           <Card key={stage.id} className="border-border/60">
             <CardHeader>
               <CardTitle>{stage.name}</CardTitle>
-              <CardDescription>
-                {stage.leaderboard
-                  ? `${stage.leaderboard.entries.length} players tracked`
-                  : "Waiting for standings data"}
-              </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-wrap gap-2">
+            <CardContent className="space-y-4">
+              <div className="flex flex-wrap gap-2">
+                {stage.leaderboard ? (
+                  <Button
+                    render={<Link href={`/leaderboards?stage=${stage.id}`} />}
+                    size="sm"
+                  >
+                    View standings
+                  </Button>
+                ) : null}
+                {stage.lobbies ? (
+                  <Button
+                    render={<Link href={`/lobbies?stage=${stage.id}`} />}
+                    size="sm"
+                    variant="outline"
+                  >
+                    View lobbies
+                  </Button>
+                ) : null}
+              </div>
               {stage.leaderboard ? (
-                <Button
-                  render={<Link href={`/leaderboards?stage=${stage.id}`} />}
-                  size="sm"
-                >
-                  View standings
-                </Button>
-              ) : null}
-              {stage.lobbies ? (
-                <Button
-                  render={<Link href={`/lobbies?stage=${stage.id}`} />}
-                  size="sm"
-                  variant="outline"
-                >
-                  View lobbies
-                </Button>
+                <div className="rounded-md border border-border/60">
+                  {stage.leaderboard.entries.length === 0 ? (
+                    <p className="px-3 py-4 text-center text-sm text-muted-foreground">
+                      TBD
+                    </p>
+                  ) : (
+                    <Table>
+                      <TableHeader>
+                        <TableRow className="border-border/60 hover:bg-transparent">
+                          <TableHead className="h-7 px-2 text-xs font-medium">Pos</TableHead>
+                          <TableHead className="h-7 px-2 text-xs font-medium">Player</TableHead>
+                          <TableHead className="h-7 px-2 text-xs font-medium">Total</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {stage.leaderboard.entries.slice(0, 5).map((entry) => (
+                          <TableRow key={entry.name} className="border-border/60">
+                            <TableCell className="px-2 py-1 text-xs">
+                              {entry.position ?? "-"}
+                            </TableCell>
+                            <TableCell className="px-2 py-1 text-xs font-medium">
+                              {entry.name}
+                            </TableCell>
+                            <TableCell className="px-2 py-1 text-xs">
+                              {entry.totalPoints ?? "-"}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  )}
+                </div>
               ) : null}
             </CardContent>
           </Card>
