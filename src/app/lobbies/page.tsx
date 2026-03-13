@@ -4,7 +4,6 @@ import { AppNav } from "@/components/app-nav";
 import { LobbyContent } from "@/components/lobby-content";
 import { LobbySkeleton } from "@/components/lobby-skeleton";
 import { RefreshTournamentButton } from "@/components/refresh-tournament-button";
-import { Badge } from "@/components/ui/badge";
 
 export const dynamic = "force-dynamic";
 
@@ -25,12 +24,7 @@ export default async function LobbiesPage({
       <main className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 py-10">
         <section className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-2">
-            <Badge variant="secondary">Lobby browser</Badge>
-            <h2 className="text-3xl font-semibold tracking-tight">Games and lobbies</h2>
-            <p className="max-w-2xl text-muted-foreground">
-              Click through stages, then drill into a specific day and game to view
-              every lobby in that round.
-            </p>
+            <h2 className="text-3xl font-semibold tracking-tight">Lobbies</h2>
           </div>
 
           <RefreshTournamentButton />

@@ -4,7 +4,6 @@ import { AppNav } from "@/components/app-nav";
 import { LeaderboardContent } from "@/components/leaderboard-content";
 import { LeaderboardSkeleton } from "@/components/leaderboard-skeleton";
 import { RefreshTournamentButton } from "@/components/refresh-tournament-button";
-import { Badge } from "@/components/ui/badge";
 
 export const dynamic = "force-dynamic";
 
@@ -23,11 +22,7 @@ export default async function LeaderboardsPage({
       <main className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 py-10">
         <section className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-2">
-            <Badge variant="secondary">Stage leaderboards</Badge>
-            <h2 className="text-3xl font-semibold tracking-tight">Standings</h2>
-            <p className="max-w-2xl text-muted-foreground">
-              Browse each stage&apos;s leaderboard as the source Google Sheet updates.
-            </p>
+            <h2 className="text-3xl font-semibold tracking-tight">Leaderboards</h2>
           </div>
 
           <RefreshTournamentButton />

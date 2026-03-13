@@ -1,7 +1,4 @@
-import Link from "next/link";
-
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,28 +6,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { LobbySelector } from "@/components/lobby-selector";
 import type { TournamentLobbies } from "@/types/tournament";
 
-function buildLobbyHref(stageId: string, dayId: string, gameId: string) {
-  const params = new URLSearchParams({
-    stage: stageId,
-    day: dayId,
-    game: gameId,
-  });
-
-  return `/lobbies?${params.toString()}`;
-}
+type StageOption = { id: string; name: string };
 
 export function LobbyBrowser({
   lobbies,
   stageId,
   selectedDayId,
   selectedGameId,
+  stages = [],
 }: {
   lobbies: TournamentLobbies;
   stageId: string;
   selectedDayId?: string;
   selectedGameId?: string;
+  /** Optional list of stages for unified Stage / Day / Game selector */
+  stages?: StageOption[];
 }) {
   const selectedDay =
     lobbies.days.find((day) => day.id === selectedDayId) ?? lobbies.days[0] ?? null;
@@ -50,31 +43,21 @@ export function LobbyBrowser({
     );
   }
 
+  const dayOptions = lobbies.days.map((day) => ({
+    id: day.id,
+    label: day.label,
+    games: day.games.map((g) => ({ id: g.id, label: g.label })),
+  }));
+
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2">
-        {lobbies.days.map((day) => (
-          <Button
-            key={day.id}
-            render={<Link href={buildLobbyHref(stageId, day.id, day.games[0]?.id ?? "")} />}
-            variant={day.id === selectedDay.id ? "default" : "outline"}
-          >
-            {day.label}
-          </Button>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap gap-2">
-        {selectedDay.games.map((game) => (
-          <Button
-            key={game.id}
-            render={<Link href={buildLobbyHref(stageId, selectedDay.id, game.id)} />}
-            variant={game.id === selectedGame.id ? "default" : "outline"}
-          >
-            {game.label}
-          </Button>
-        ))}
-      </div>
+      <LobbySelector
+        stages={stages}
+        days={dayOptions}
+        stageId={stageId}
+        selectedDayId={selectedDay.id}
+        selectedGameId={selectedGame.id}
+      />
 
       <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         {selectedGame.lobbies.map((lobby) => (

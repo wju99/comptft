@@ -1,7 +1,4 @@
-import Link from "next/link";
-
 import { LobbyBrowser } from "@/components/lobby-browser";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
@@ -28,26 +25,13 @@ export async function LobbyContent({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-center gap-2">
-        {tournament.stages
-          .filter((stage) => stage.lobbies)
-          .map((stage) => (
-            <Button
-              key={stage.id}
-              render={<Link href={`/lobbies?stage=${stage.id}`} />}
-              variant={selectedStage?.id === stage.id ? "default" : "outline"}
-            >
-              {stage.name}
-            </Button>
-          ))}
-      </div>
-
       {selectedStage?.lobbies ? (
         <LobbyBrowser
           lobbies={selectedStage.lobbies}
           stageId={selectedStage.id}
           selectedDayId={dayParam}
           selectedGameId={gameParam}
+          stages={stagesWithLobbies.map((s) => ({ id: s.id, name: s.name }))}
         />
       ) : (
         <Card>
