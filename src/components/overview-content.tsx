@@ -24,7 +24,7 @@ export async function OverviewContent() {
                 {tournament.title}
               </CardTitle>
               <CardDescription className="w-full text-base leading-7">
-                The Rolldown podcast (featuring WigWugg and Broseph) does a deep dive into the TFT competition at Set 16 AMER Regionals.
+                The Rolldown podcast (featuring WigWugg and Broseph) does a deep dive into the competition at Set 16 AMER Regionals.
               </CardDescription>
             </div>
           </CardHeader>
