@@ -8,7 +8,6 @@ const links = [
   { href: "/", label: "Overview" },
   { href: "/leaderboards", label: "Leaderboards" },
   { href: "/lobbies", label: "Lobbies" },
-  { href: "/api/tournament", label: "API" },
 ];
 
 export function AppNav({ currentPath }: { currentPath: string }) {
@@ -28,10 +27,8 @@ export function AppNav({ currentPath }: { currentPath: string }) {
         <nav className="flex flex-wrap gap-2">
           {links.map((link) => {
             const isActive =
-              link.href === "/api/tournament"
-                ? false
-                : currentPath === link.href ||
-                  (link.href !== "/" && currentPath.startsWith(link.href));
+              currentPath === link.href ||
+              (link.href !== "/" && currentPath.startsWith(link.href));
 
             return (
               <Button
