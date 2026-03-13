@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="680" height="220" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8f6ff"/>
+      <stop offset="40%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#0077bb"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Transparent background (no fill) -->
+
+  <!-- Left accent bar -->
+  <rect x="0" y="8" width="5" height="204" fill="#00d4ff" opacity="0.9"/>
+  <rect x="0" y="8" width="20" height="204" fill="#00d4ff" opacity="0.07"/>
+
+  <!-- Top accent line -->
+  <line x1="26" y1="16" x2="668" y2="16" stroke="#00d4ff" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="26"  cy="16" r="2" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="347" cy="16" r="2" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="668" cy="16" r="2" fill="#00d4ff" opacity="0.7"/>
+
+  <!-- Bottom accent line -->
+  <line x1="26" y1="204" x2="668" y2="204" stroke="#00d4ff" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="26"  cy="204" r="2" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="347" cy="204" r="2" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="668" cy="204" r="2" fill="#00d4ff" opacity="0.7"/>
+
+  <!-- Corner brackets -->
+  <polyline points="10,30 10,10 30,10"     fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.85"/>
+  <polyline points="670,30 670,10 650,10"  fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.85"/>
+  <polyline points="10,190 10,210 30,210"  fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.85"/>
+  <polyline points="670,190 670,210 650,210" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.85"/>
+
+  <!-- Circuit decorations -->
+  <g opacity="0.4" stroke="#00d4ff" stroke-width="0.7" fill="none">
+    <polyline points="22,88 42,88 42,66 60,66"/>
+    <circle cx="60" cy="66" r="2.3" fill="#00d4ff"/>
+    <polyline points="22,142 40,142 40,160 58,160"/>
+    <circle cx="58" cy="160" r="2.3" fill="#00d4ff"/>
+    <polyline points="658,92 638,92 638,70 618,70"/>
+    <circle cx="618" cy="70" r="2.3" fill="#00d4ff"/>
+    <polyline points="658,148 638,148 638,166 618,166"/>
+    <circle cx="618" cy="166" r="2.3" fill="#00d4ff"/>
+  </g>
+
+  <!-- GLOW HALO -->
+  <g filter="url(#glow2)" opacity="0.18" fill="#00d4ff">
+    <path d="M44,54 Q50,34 74,34 L112,34 L107,54 L78,54 Q66,54 63,66 L52,140 Q50,152 62,152 L93,152 L88,170 L50,170 Q26,170 30,148 L44,62 Q44,57 44,54 Z"/>
+    <path d="M118,170 L133,34 L197,34 Q218,34 216,54 L203,148 Q200,166 180,170 Z M143,54 L134,148 Q133,154 143,154 L171,154 Q180,154 182,148 L192,54 Q193,46 183,46 L152,46 Q142,46 143,54 Z"/>
+    <path d="M222,170 L237,34 L278,34 L284,114 L308,34 L348,34 L333,170 L307,170 L318,78 L290,170 L266,170 L260,78 L249,170 Z"/>
+    <path d="M354,170 L369,34 L435,34 Q455,34 452,56 L443,106 Q440,122 420,122 L389,122 L380,170 Z M391,54 L382,104 L406,104 Q415,104 416,96 L423,62 Q425,54 416,54 Z"/>
+    <path d="M455,170 L466,86 L442,86 L447,66 L528,66 L523,86 L499,86 L488,170 Z M449,34 L530,34 L525,54 L458,54 Z"/>
+    <path d="M532,170 L547,34 L618,34 L613,54 L568,54 L562,86 L602,86 L597,106 L557,106 L547,170 Z"/>
+    <path d="M620,170 L631,86 L607,86 L612,66 L668,66 L663,86 L651,86 L640,170 Z M614,34 L670,34 L665,54 L618,54 Z"/>
+  </g>
+
+  <!-- MAIN LETTERFORMS -->
+  <g filter="url(#glow)" fill="url(#tg)">
+    <!-- C -->
+    <path d="M44,54 Q50,34 74,34 L112,34 L107,54 L78,54 Q66,54 63,66 L52,140 Q50,152 62,152 L93,152 L88,170 L50,170 Q26,170 30,148 L44,62 Q44,57 44,54 Z"/>
+    <!-- O -->
+    <path d="M118,170 L133,34 L197,34 Q218,34 216,54 L203,148 Q200,166 180,170 Z M143,54 L134,148 Q133,154 143,154 L171,154 Q180,154 182,148 L192,54 Q193,46 183,46 L152,46 Q142,46 143,54 Z"/>
+    <!-- M -->
+    <path d="M222,170 L237,34 L278,34 L284,114 L308,34 L348,34 L333,170 L307,170 L318,78 L290,170 L266,170 L260,78 L249,170 Z"/>
+    <!-- P -->
+    <path d="M354,170 L369,34 L435,34 Q455,34 452,56 L443,106 Q440,122 420,122 L389,122 L380,170 Z M391,54 L382,104 L406,104 Q415,104 416,96 L423,62 Q425,54 416,54 Z"/>
+    <!-- T -->
+    <path d="M455,170 L466,86 L442,86 L447,66 L528,66 L523,86 L499,86 L488,170 Z M449,34 L530,34 L525,54 L458,54 Z"/>
+    <!-- F -->
+    <path d="M532,170 L547,34 L618,34 L613,54 L568,54 L562,86 L602,86 L597,106 L557,106 L547,170 Z"/>
+    <!-- T -->
+    <path d="M620,170 L631,86 L607,86 L612,66 L668,66 L663,86 L651,86 L640,170 Z M614,34 L670,34 L665,54 L618,54 Z"/>
+  </g>
+
+  <!-- Inline highlight stroke -->
+  <g fill="none" stroke="#c8f6ff" stroke-width="1" opacity="0.22">
+    <path d="M44,54 Q50,34 74,34 L112,34 L107,54 L78,54 Q66,54 63,66 L52,140 Q50,152 62,152 L93,152 L88,170 L50,170 Q26,170 30,148 L44,62 Q44,57 44,54 Z"/>
+    <path d="M118,170 L133,34 L197,34 Q218,34 216,54 L203,148 Q200,166 180,170 Z M143,54 L134,148 Q133,154 143,154 L171,154 Q180,154 182,148 L192,54 Q193,46 183,46 L152,46 Q142,46 143,54 Z"/>
+    <path d="M222,170 L237,34 L278,34 L284,114 L308,34 L348,34 L333,170 L307,170 L318,78 L290,170 L266,170 L260,78 L249,170 Z"/>
+    <path d="M354,170 L369,34 L435,34 Q455,34 452,56 L443,106 Q440,122 420,122 L389,122 L380,170 Z M391,54 L382,104 L406,104 Q415,104 416,96 L423,62 Q425,54 416,54 Z"/>
+    <path d="M455,170 L466,86 L442,86 L447,66 L528,66 L523,86 L499,86 L488,170 Z M449,34 L530,34 L525,54 L458,54 Z"/>
+    <path d="M532,170 L547,34 L618,34 L613,54 L568,54 L562,86 L602,86 L597,106 L557,106 L547,170 Z"/>
+    <path d="M620,170 L631,86 L607,86 L612,66 L668,66 L663,86 L651,86 L640,170 Z M614,34 L670,34 L665,54 L618,54 Z"/>
+  </g>
+
+  <!-- System tag -->
+  <text x="655" y="199" text-anchor="end" font-family="monospace" font-size="8" fill="#00d4ff" opacity="0.4">SYS://GRID.v2</text>
+</svg>
